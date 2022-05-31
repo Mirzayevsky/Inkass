@@ -1,27 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-.ant-btn-primary {
-    color: #fff;
-    border-color: #2b2b2b !important;
-    background: #000 !important;
+.App {
+  text-align: center;
 }
-.ant-layout-sider-trigger{
-    color: #fff !important;
-    background: black !important;
-    max-width: 250px !important;
-    min-width: 250px !important;
-}
-.ant-layout-sider{
-    max-width: 250px !important;
-    min-width: 250px !important;
-    flex: 0 0 200px;
-    width: 250px !important;
 
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
-.ant-layout-sider-dark{
-    background: rgb(55, 52, 53) !important;
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
-button{
-    border: 0;
-    outline: 0;
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
