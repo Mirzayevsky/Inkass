@@ -14,7 +14,7 @@ import {
 } from "./style";
 
 
-const DrawerMain = ({title, firstTitle, secondTitle, thirdTitle,}) => {
+const DrawerMain = ({title, firstTitle, secondTitle, thirdTitle}) => {
     const [user, setUser] = useState({key:2, name: "", phoneNumber:"", address: ""})
     const [visible,setVisible] = useState(false)
     const {state, dispatch} = useContext(MyContext)
@@ -29,7 +29,7 @@ const DrawerMain = ({title, firstTitle, secondTitle, thirdTitle,}) => {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         if (user.name === "" || user.phoneNumber === "" || user.address === "") {
             toast.error("Something went wrong !")
         }

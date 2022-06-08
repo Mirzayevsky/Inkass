@@ -4,7 +4,6 @@ import UserTable from "../../Components/UserTable";
 
 const Users = () => {
 
-
     return(
         <Container>
             <Title>Users</Title>

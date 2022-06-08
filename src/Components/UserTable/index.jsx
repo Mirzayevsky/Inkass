@@ -1,7 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Form, Table, Modal} from 'antd';
+import {Form, Modal} from 'antd';
 import {MyContext} from "../../App";
 import DrawerMain from "../Drawer/app";
+import {Container, Table, TableWrapper, TBody, TD, TH, THead, TRow} from "./style";
 import PopUp from "../PopUp";
 
 const UserTable = () => {
@@ -9,6 +10,7 @@ const UserTable = () => {
     const {state, dispatch} = useContext(MyContext)
     const {confirm} = Modal;
     const [edit, setEdit] = useState(null);
+
     const columns = [
         {
             title: 'name',
@@ -34,8 +36,7 @@ const UserTable = () => {
             render: (_, item) => {
                 return (
                     <>
-                        <button onClick={() => EditForm(item)}>Edit</button>
-                        <button onClick={() => DeleteUser(item.key)}>Delete</button>
+
                     </>
                 )
             }
@@ -58,42 +59,63 @@ const UserTable = () => {
         })
     }
 
-    const EditForm =  (item) => {
+    const EditForm = (item) => {
         setEdit(item);
-            // dispatch({
-            //     type: "EDIT_USER",
-            //     payload: item
-            // })
+        // dispatch({
+        //     type: "EDIT_USER",
+        //     payload: item
+        // })
     }
 
-   
     return (
-        <>
-        <h1> {state.user.length} </h1>
-            {/*{ edit ? <PopUp/> : ""}*/}
-            {/* <button onClick={handleAdd}>add</button> */}
-            {/* {state.user?.map((Item)=>(
-                <div key={Item.key}>
-                    {Item.name}
-                    {Item.phoneNumber}
-                </div>
-            ))} */}
-
-           <DrawerMain
+        <Container>
+            {edit ?
+                <PopUp
+                    firstTitle={'Name'}
+                    secondTitle={'PhoneNumber'}
+                    thirdTitle={'Address'}
+                />
+            : ""}
+            <DrawerMain
                 title={"Add a user"}
                 firstTitle={'Username'}
                 secondTitle={'Phone Number'}
                 thirdTitle={'User address'}
             />
             {/* <Form form={form} component={false}> */}
+            <TableWrapper>
+                <Table>
+                    <THead bg="#72a6bf">
+                        <TRow>
+                            <TH>#</TH>
+                            <TH>Name</TH>
+                            <TH>PhoneNumber</TH>
+                            <TH>Address</TH>
+                            <TH>Edit</TH>
+                            <TH>Delete</TH>
+                        </TRow>
+                    </THead>
+                    <TBody>
+                        {state.user.map((Item) => (
+                            <TRow key={Item.key}>
+                                <TD>{Item.key + 1}</TD>
+                                <TD>{Item.name}</TD>
+                                <TD>{Item.phoneNumber}</TD>
+                                <TD>{Item.address}</TD>
+                                <TD>
+                                    <button onClick={() => EditForm(Item)}>Edit</button>
+                                </TD>
+                                <TD>
+                                    <button onClick={() => DeleteUser(Item.key)}>Delete</button>
+                                </TD>
+                            </TRow>
+                        ))}
+                    </TBody>
+                </Table>
+            </TableWrapper>
 
-              <Table
-                dataSource={state.user}
-                columns={columns}
-                bordered
-            />
-           {/* </Form> */}
-        </>
+            {/* </Form> */}
+        </Container>
     );
 };
 
