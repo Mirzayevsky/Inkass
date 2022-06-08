@@ -18,7 +18,6 @@ const DrawerMain = ({title, firstTitle, secondTitle, thirdTitle}) => {
     const [user, setUser] = useState({key:2, name: "", phoneNumber:"", address: ""})
     const [visible,setVisible] = useState(false)
     const {state, dispatch} = useContext(MyContext)
-    const [count, setCount] = useState(4)
 
     const showDrawer = () => {
         setVisible(true);
@@ -34,11 +33,9 @@ const DrawerMain = ({title, firstTitle, secondTitle, thirdTitle}) => {
             toast.error("Something went wrong !")
         }
         else {
-            setCount(count + 1)
-            // setUser({...user, key:count})
             dispatch({
                 type: "ADD_USER",
-                payload: user,
+                payload: user ,
             })
             setVisible(false);
             toast.success("Completed Successfully !")

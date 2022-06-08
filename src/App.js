@@ -8,8 +8,7 @@ import Navbar from "./Layouts/Navigationbar/app";
 import {Layout} from "antd";
 import {ToastContainer} from "react-toastify";
 // Routes
-import Users from "./Pages/Users/app"
-// const Users = lazy(() => import("./Pages/Users/app"))
+const Users = lazy(() => import("./Pages/Users/app"))
 const Cash = lazy(() => import("./Pages/Cash/app"))
 const Profit = lazy(() => import("./Pages/Income/app"))
 export const MyContext = createContext();
@@ -35,10 +34,12 @@ function reducer(state, action) {
         }
 
         case 'EDIT_USER': {
-            console.log(action.payload);
-            break;
+            const user = state.user
+            console.log(`{action.payload}`);
+            // state.user.push(state.user.map((Item) => Item.key === key ? action.payload.user : Item))
+            return {...state,user}
         }
-
+        
         default:
             return state;
     }
@@ -55,6 +56,7 @@ function App() {
                 address: "Uzbekistan,Tashkent",
             },
         ],
+
         cash:[
             {
                 key:1,
