@@ -69,7 +69,7 @@ function App() {
             },
             {
                 id: 1,
-                name: "Armagedon",
+                name: "Armagedsdssdsdon",
                 phoneNumber: "+998 (99) 234 23 54",
                 address: "Uzbekistan,Tashkent",
             }
