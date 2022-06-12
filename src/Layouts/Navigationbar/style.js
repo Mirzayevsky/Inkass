@@ -55,5 +55,13 @@ height: 100%;
 width: 100%;
 }
 
-
+`;
+export const NavWrap = styled.div`
+width: calc(100vw - 260px);
+height: calc(100vh - 80px);
+position: fixed;
+right: 0;
+bottom: 0;
+z-index: 9;
+background: #f0f2f5;
 `;

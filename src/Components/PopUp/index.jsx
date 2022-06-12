@@ -6,37 +6,37 @@ import {toast} from "react-toastify";
 import {ButtonWrapper, CancelButton, SaveButton} from "./style";
 
 const PopUp = ({firstTitle, secondTitle, thirdTitle, edit, setPopUp}) => {
-    const [user, setUser] = useState({key: "", name: "", phoneNumber: "", address: ""})
     const [visible, setVisible] = useState(false)
     const {state, dispatch} = useContext(MyContext)
+    
+    console.log(edit);
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-            let obj = {
-                name: e.target[0].value,
-                phoneNumber: e.target[1].value,
-                address: e.target[2].value,
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        console.log(event.target[0].value);
+           let obj = {
+                id: edit.id,
+                name: event.target[0].value,
+                phoneNumber: event.target[1].value,
+                address: event.target[2].value,
             }
             dispatch({
                 type: "EDIT_USER",
-                payload: {...obj, key:edit.key,user}
+                payload: obj
             })
-
             setVisible(false);
             toast.success(" Completed Successfully")
     };
 
-
     return (
         <Container>
-            <Form >
+            <Form  onSubmit={handleSubmit}  >
                 <Title>Do you want to Edit ?</Title>
                 <InputWrap>
                     <Label>{firstTitle}</Label>
                     <Input
                         type={"text"}
                         placeholder={firstTitle}
-                        onChange={e => setUser({...user, name: e.target.value})}
                         name={"name"}
                         defaultValue={edit?.name}
                     />
@@ -49,7 +49,6 @@ const PopUp = ({firstTitle, secondTitle, thirdTitle, edit, setPopUp}) => {
                             mask="_"
                             name={"phoneNumber"}
                             defaultValue={edit?.phoneNumber}
-                            onChange={e => setUser({...user, phoneNumber: e.target.value})}
                         /> : ""}
 
                     {thirdTitle ? <Label>{thirdTitle}</Label> : ""}
@@ -59,14 +58,13 @@ const PopUp = ({firstTitle, secondTitle, thirdTitle, edit, setPopUp}) => {
                         placeholder={thirdTitle}
                         name={"address"}
                         defaultValue={edit?.address}
-                        onChange={e => setUser({...user, address: e.target.value})}
                     /> : ""}
                 </InputWrap>
                 <ButtonWrapper>
-                    <CancelButton onClick={() => setPopUp({cancel: false})}>
+                    <CancelButton type="button" onClick={() => setPopUp({cancel: false})}>
                         Cancel
                     </CancelButton>
-                    <SaveButton onClick={handleSubmit} >
+                    <SaveButton>
                         Save
                     </SaveButton>
                 </ButtonWrapper>

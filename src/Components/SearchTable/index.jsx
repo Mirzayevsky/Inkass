@@ -5,8 +5,8 @@ import DrawerMain from "../Drawer/app";
 import {Container, Table, TableWrapper, TBody, TD, TH, THead, TRow} from "./style";
 import PopUp from "../PopUp";
 
-const UserTable = () => {
-    const {state, dispatch} = useContext(MyContext)
+const SearchTable = ({filterData}) => {
+    const {dispatch} = useContext(MyContext)
     const [edit, setEdit] = useState(null);
     const [popUp, setPopUp] = useState({cancel: false})
     const {confirm} = Modal;
@@ -27,7 +27,7 @@ const UserTable = () => {
         })
     }
 
-    const EditFormData = (item) => {
+    const EditFormData = ({item}) => {
         setEdit(item);
     }
 
@@ -43,15 +43,9 @@ const UserTable = () => {
                 />
             ) : ""
             }
-            <DrawerMain
-                title={"Add a user"}
-                firstTitle={'Username'}
-                secondTitle={'Phone Number'}
-                thirdTitle={'User address'}
-            />
             <TableWrapper>
                 <Table>
-                    <THead>
+                    <THead bg="#72a6bf">
                         <TRow>
                             <TH>#</TH>
                             <TH>Name</TH>
@@ -62,10 +56,10 @@ const UserTable = () => {
                         </TRow>
                     </THead>
                     <TBody>
-                        {state.user.map((item,Index) => (
+                        {filterData?.map((item,Index) => (
                             <TRow key={item.id}>
                                 <TD>{Index + 1}</TD>
-                                <TD>{item.name}</TD>
+                                <TD>{item.mname}</TD>
                                 <TD>{item.phoneNumber}</TD>
                                 <TD>{item.address}</TD>
                                 <TD>
@@ -89,6 +83,6 @@ const UserTable = () => {
     );
 };
 
-export default UserTable;
+export default SearchTable;
 
 

@@ -15,9 +15,11 @@ import {
 
 
 const DrawerMain = ({title, firstTitle, secondTitle, thirdTitle}) => {
-    const [user, setUser] = useState({key:2, name: "", phoneNumber:"", address: ""})
+    const [user, setUser] = useState({id:"",name: "", phoneNumber:"", address: ""})
     const [visible,setVisible] = useState(false)
     const {state, dispatch} = useContext(MyContext)
+
+
 
     const showDrawer = () => {
         setVisible(true);
@@ -35,13 +37,14 @@ const DrawerMain = ({title, firstTitle, secondTitle, thirdTitle}) => {
         else {
             dispatch({
                 type: "ADD_USER",
-                payload: user ,
+                payload:{...user, id: state.user[state.user.length -1].id +1},
             })
             setVisible(false);
             toast.success("Completed Successfully !")
         }
 
     };
+    console.log(state.user);
 
     return (
         <>
@@ -49,7 +52,6 @@ const DrawerMain = ({title, firstTitle, secondTitle, thirdTitle}) => {
                 {title}
             </AddButton>
             <Drawer title={title} placement="right" onClose={onClose} visible={visible}>
-                <form onSubmit={handleSubmit}>
                     <InputWrap>
                         <Label>{firstTitle}</Label>
                         <Input
@@ -79,11 +81,10 @@ const DrawerMain = ({title, firstTitle, secondTitle, thirdTitle}) => {
                         <CancelButton onClick={onClose}>
                             Cancel
                         </CancelButton>
-                        <SaveButton>
+                        <SaveButton onClick={handleSubmit}>
                             Save
                         </SaveButton>
                     </ButtonWrapper>
-                </form>
             </Drawer>
         </>
     );

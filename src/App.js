@@ -14,16 +14,10 @@ const Profit = lazy(() => import("./Pages/Income/app"))
 export const MyContext = createContext();
 
 function reducer(state, action) {
-    // this reducer take state and with action's type then return state
     switch (action.type) {
         case 'DELETE_USER': {
-            const {user} = state;
-            let array = user.map((e, index) => {
-                if (e.key === action.payload) {
-                    user.splice(index, 1);
-                }
-                return e;
-            });
+            const user = state.user;
+            const array = user.filter(item => item.id !== action.payload)
             return {...state, user: array};
         }
 
@@ -32,14 +26,25 @@ function reducer(state, action) {
             user.push(action.payload);
             return {...state, user }
         }
-
+       
         case 'EDIT_USER': {
-            const user = state.user
-            console.log(`{action.payload}`);
-            // state.user.push(state.user.map((Item) => Item.key === key ? action.payload.user : Item))
-            return {...state,user}
+            const {user} = state;
+            const newData = action.payload;
+            const array = user.map((item)=> {
+                if(item.id === newData.id) {
+                    item = {
+                        ...item,
+                        name: newData.name,
+                        id: newData.id,
+                        phoneNumber: newData.phoneNumber,
+                        address: newData.address
+                    }
+                }
+                return item
+            })
+            return {...state, user: array}
         }
-        
+
         default:
             return state;
     }
@@ -50,16 +55,21 @@ function App() {
         income: [],
         user: [
             {
-                key: 0,
+                id: 0,
                 name: "John Doe",
                 phoneNumber: "+998 (99) 234 23 54",
                 address: "Uzbekistan,Tashkent",
             },
+            {
+                id: 1,
+                name: "Armagedsdssdsdon",
+                phoneNumber: "+998 (99) 234 23 54",
+                address: "Uzbekistan,Tashkent",
+            }
         ],
-
         cash:[
             {
-                key:1,
+                id:1,
                 name:"Cash - 1"
             }
         ]
