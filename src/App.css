@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.ant-btn-primary {
+    color: #fff;
+    border-color: #2b2b2b !important;
+    background: #000 !important;
+}
+.site-layout{
+ width: calc(100vw - 260px);
+ margin-left: auto;
+}
+
+button{
+    border: 0;
+    outline: 0;
+}
+.edit-btn{
+    background: #19cd19;
+}
+.delete-btn{
+    background: #ff3300;
+}
