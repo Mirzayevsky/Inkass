@@ -65,3 +65,11 @@ bottom: 0;
 z-index: 9;
 background: #f0f2f5;
 `;
+export const Input = styled.input`
+height: 34px;
+width: 260px;
+border-radius: 5px;
+border: 2px solid lightgray;
+outline: none;
+padding-left: 13px;
+`;

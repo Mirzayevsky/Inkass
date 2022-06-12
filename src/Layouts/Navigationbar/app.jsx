@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import {AdminWrap, BellIcon, Logo, Navigationbar, NavWrap} from "./style";
+import {AdminWrap, BellIcon, Logo, Navigationbar, NavWrap,Input} from "./style";
 import {ReactComponent as LogoSvg} from "../../Assets/navbar/CRM-система.svg";
 import {ReactComponent as BellSvg} from "../../Assets/navbar/bell-860.svg";
 import AdminImg from "../../Assets/navbar/user.557587208eb9e232f2ca (1).png"
@@ -18,8 +18,8 @@ const Navbar = () => {
                 <span>Inkass</span>
                 <LogoSvg/>
             </Logo>
-            <input className={"search-menu"}
-                    placeholder=" search "
+            <Input className={"search-menu"}
+                    placeholder="search"
                     onChange={(e) => {setWord(e.target.value); setShow(true)} }/>
             <BellIcon>
                 <BellSvg/>
