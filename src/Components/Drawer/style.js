@@ -11,6 +11,10 @@ align-items: center;
 justify-content: center;
 border-radius: 3px;
 cursor: pointer;
+background-color: green;
+font-family: 'Poppins',sans-serif;
+margin-left: auto;
+margin-right: 10px;
 
 `;
 

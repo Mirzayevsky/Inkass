@@ -1,36 +1,39 @@
 import React, {useContext, useState} from "react";
 import Input from "../UI/Input";
 import {InputWrap, InputPhoneNumber, Label, Container, Form, Title} from "./style";
-import {MyContext} from "../../App";
+import { Context } from "../../Context/State";
 import {toast} from "react-toastify";
 import {ButtonWrapper, CancelButton, SaveButton} from "./style";
 
 const PopUp = ({firstTitle, secondTitle, thirdTitle, edit, setPopUp}) => {
-    const [visible, setVisible] = useState(false)
-    const {state, dispatch} = useContext(MyContext)
-    
+    const {dispatch} = useContext(Context)
+
     console.log(edit);
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(event.target[0].value);
-           let obj = {
-                id: edit.id,
-                name: event.target[0].value,
-                phoneNumber: event.target[1].value,
-                address: event.target[2].value,
-            }
+        let obj = {
+            id: edit.id,
+            name: event.target[0].value,
+            phoneNumber: event.target[1].value,
+            address: event.target[2].value,
+        }
+        if (obj.name === "" || obj.phoneNumber === 0 || obj.address === "") {
+            toast.error("Did not completed")
+        } else {
             dispatch({
                 type: "EDIT_USER",
                 payload: obj
             })
-            setVisible(false);
-            toast.success(" Completed Successfully")
+            setPopUp({popUp: false})
+            toast.success(" Completed successfully")
+        }
+
     };
 
     return (
         <Container>
-            <Form  onSubmit={handleSubmit}  >
+            <Form onSubmit={handleSubmit} >
                 <Title>Do you want to Edit ?</Title>
                 <InputWrap>
                     <Label>{firstTitle}</Label>

@@ -29,7 +29,7 @@ export const THead = styled.thead`
   tr {
     background-color: lightgray;
     th {
-      color: white;
+     color: #222;
       padding: 20px 10px;
       &:last-child {
         border-top-right-radius: 10px;
@@ -46,7 +46,7 @@ export const TBody = styled.tbody`
     border-left: 1px solid black;
     transition-duration: 0.5s;
     &:hover {
-      background-color: lightgrey;
+      background-color: lightblue;
     }
   }
 `;
@@ -81,3 +81,21 @@ export const TD = styled.td`
 `;
 
 export const TH = styled.th``;
+export const Button = styled.div`
+width: 50px;
+height: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-left: 20%;
+cursor: pointer;
+transition: 0.5s ease;
+svg{
+    height: 100%;
+    width: 100%;
+    stroke: #f30f30;
+}
+img{
+  height: 100%;
+}
+`;

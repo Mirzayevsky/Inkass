@@ -1,12 +1,16 @@
 import React, {useContext, useState} from 'react';
 import {Form, Modal} from 'antd';
-import {MyContext} from "../../App";
+import { Context } from '../../Context/State';
 import DrawerMain from "../Drawer/app";
-import {Container, Table, TableWrapper, TBody, TD, TH, THead, TRow} from "./style";
+import {Container, Table, TableWrapper, TBody, TD, TH, THead, TRow,Button} from "./style";
 import PopUp from "../PopUp";
+import { ReactComponent as DeleteSvg } from '../../Assets/main/delete.svg';
+import EditImg from "../../Assets/main/edit.png"
+
+
 
 const SearchTable = ({filterData}) => {
-    const {dispatch} = useContext(MyContext)
+    const {dispatch} = useContext(Context)
     const [edit, setEdit] = useState(null);
     const [popUp, setPopUp] = useState({cancel: false})
     const {confirm} = Modal;
@@ -59,19 +63,21 @@ const SearchTable = ({filterData}) => {
                         {filterData?.map((item,Index) => (
                             <TRow key={item.id}>
                                 <TD>{Index + 1}</TD>
-                                <TD>{item.mname}</TD>
+                                <TD>{item.name}</TD>
                                 <TD>{item.phoneNumber}</TD>
                                 <TD>{item.address}</TD>
                                 <TD>
-                                    <button onClick={() => {
+                                    <Button onClick={() => {
                                         setPopUp({cancel: true});
                                         EditFormData(item)
                                     }}>
-                                        Edit
-                                    </button>
+                                        <img src={EditImg} alt={"edit"}/>
+                                    </Button>
                                 </TD>
                                 <TD>
-                                    <button onClick={() => deleteUser(item.id)}>Delete</button>
+                                    <Button onClick={() => deleteUser(item.id)}>
+                                        <DeleteSvg/>
+                                    </Button>
                                 </TD>
                             </TRow>
                         ))}

@@ -73,3 +73,14 @@ border: 2px solid lightgray;
 outline: none;
 padding-left: 13px;
 `;
+export const Button = styled.div`
+width: 30px;
+height: 30px;
+position: absolute;
+top: 20px;
+right: 20px;
+cursor: pointer;
+svg{
+    height: 100%;
+}
+`;

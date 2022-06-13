@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {Drawer} from 'antd';
-import {MyContext} from "../../App";
+import { Context } from '../../Context/State';
 import {toast} from "react-toastify";
 import Input from "../UI/Input";
 import {
@@ -17,7 +17,7 @@ import {
 const DrawerMain = ({title, firstTitle, secondTitle, thirdTitle}) => {
     const [user, setUser] = useState({id:"",name: "", phoneNumber:"", address: ""})
     const [visible,setVisible] = useState(false)
-    const {state, dispatch} = useContext(MyContext)
+    const {state, dispatch} = useContext(Context)
 
 
 

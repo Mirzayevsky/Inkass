@@ -1,11 +1,11 @@
 import React, {useContext} from 'react';
 import {Form, Table, Modal} from 'antd';
-import {MyContext} from "../../App";
+import { Context } from '../../Context/State';
 import {Container} from "./style";
 
 const CashTable = () => {
     const [form] = Form.useForm();
-    const {state, dispatch} = useContext(MyContext)
+    const {state, dispatch} = useContext(Context)
     const {confirm} = Modal;
 
     const columns = [
