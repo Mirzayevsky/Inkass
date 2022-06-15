@@ -81,6 +81,22 @@ export const TD = styled.td`
 `;
 
 export const TH = styled.th``;
+export const EditButton = styled.div`
+width: 50px;
+height: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-left: 30%;
+cursor: pointer;
+transition: 0.5s ease;
+
+
+img{
+  height: 100%;
+}
+`;
+
 export const Button = styled.div`
 width: 50px;
 height: 30px;
@@ -90,6 +106,7 @@ justify-content: center;
 margin-left: 20%;
 cursor: pointer;
 transition: 0.5s ease;
+
 svg{
     height: 100%;
     width: 100%;

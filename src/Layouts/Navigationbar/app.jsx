@@ -3,7 +3,7 @@ import {AdminWrap, BellIcon, Logo, Navigationbar, NavWrap,Input,Button} from "./
 import {ReactComponent as LogoSvg} from "../../Assets/navbar/CRM-система.svg";
 import {ReactComponent as BellSvg} from "../../Assets/navbar/bell-860.svg";
 import AdminImg from "../../Assets/navbar/user.557587208eb9e232f2ca (1).png"
-import { Context } from "../../Context/State";
+import { Context } from "../../Context/Context";
 import SearchTable from "../../Components/SearchTable";
 import { ReactComponent as ExitSvg } from "../../Assets/main/exit.svg";
 
@@ -13,7 +13,6 @@ const Navbar = () => {
     const [show,setShow] = useState(false)
 
     const filterData = state.user.filter((data) => data.name.toLowerCase().trim().includes(word.toLowerCase().trim()))
-
     dispatch({
         type:"ON_SEARCH",
         payload:word

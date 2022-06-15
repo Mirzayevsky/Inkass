@@ -1,15 +1,12 @@
 import React, {useContext, useState} from "react";
 import Input from "../UI/Input";
 import {InputWrap, InputPhoneNumber, Label, Container, Form, Title} from "./style";
-import { Context } from "../../Context/State";
+import { Context } from "../../Context/Context";
 import {toast} from "react-toastify";
 import {ButtonWrapper, CancelButton, SaveButton} from "./style";
 
 const PopUp = ({firstTitle, secondTitle, thirdTitle, edit, setPopUp}) => {
     const {dispatch} = useContext(Context)
-
-    console.log(edit);
-
     const handleSubmit = (event) => {
         event.preventDefault()
         let obj = {

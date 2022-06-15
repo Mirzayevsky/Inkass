@@ -1,8 +1,8 @@
 import React, {useContext, useState} from 'react';
 import {Form, Modal} from 'antd';
-import { Context } from '../../Context/State';
+import { Context } from '../../Context/Context';
 import DrawerMain from "../Drawer/app";
-import {Container, Table, TableWrapper, TBody, TD, TH, THead, TRow,Button} from "./style";
+import {Container, Table, TableWrapper, TBody, TD, TH, THead, TRow,Button,EditButton} from "./style";
 import PopUp from "../PopUp";
 import { ReactComponent as DeleteSvg } from '../../Assets/main/delete.svg';
 import EditImg from "../../Assets/main/edit.png"
@@ -71,12 +71,12 @@ const UserTable = () => {
                                 <TD>{item.phoneNumber}</TD>
                                 <TD>{item.address}</TD>
                                 <TD>
-                                    <Button onClick={() => {
+                                    <EditButton onClick={() => {
                                         setPopUp({cancel: true});
                                         EditFormData(item)
                                     }}>
                                         <img src={EditImg} alt={"edit"}/>
-                                    </Button>
+                                    </EditButton>
                                 </TD>
                                 <TD>
                                     <Button onClick={() => deleteUser(item.id)}>

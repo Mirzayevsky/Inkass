@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {Form, Table, Modal} from 'antd';
-import { Context } from '../../Context/State';
 import {Container} from "./style";
+import Context from "../../Context/Context"
 
 const CashTable = () => {
     const [form] = Form.useForm();

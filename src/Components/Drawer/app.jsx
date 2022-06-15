@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {Drawer} from 'antd';
-import { Context } from '../../Context/State';
+import { Context } from '../../Context/Context';
 import {toast} from "react-toastify";
 import Input from "../UI/Input";
 import {
@@ -18,9 +18,7 @@ const DrawerMain = ({title, firstTitle, secondTitle, thirdTitle}) => {
     const [user, setUser] = useState({id:"",name: "", phoneNumber:"", address: ""})
     const [visible,setVisible] = useState(false)
     const {state, dispatch} = useContext(Context)
-
-
-
+    
     const showDrawer = () => {
         setVisible(true);
     };
@@ -39,13 +37,12 @@ const DrawerMain = ({title, firstTitle, secondTitle, thirdTitle}) => {
                 type: "ADD_USER",
                 payload:{...user, id: state.user[state.user.length -1].id +1},
             })
+           
             setVisible(false);
             toast.success("Completed Successfully !")
         }
 
     };
-    console.log(state.user);
-
     return (
         <>
             <AddButton onClick={showDrawer}>

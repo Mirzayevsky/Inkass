@@ -1,16 +1,15 @@
-import React from "react";
+import React,{useContext} from "react";
 import {Container} from "./style"
-import DrawerMain from "../../Components/Drawer/app";
-import CashTable from "../../Components/CashTable";
+import {Context } from "../../Context/Context";
+import DrawerCash from "../../Components/CashDrawer/app";
 const Cash = () => {
+    const  {state,dispatch} = useContext(Context)
     return(
         <Container>
             <h1>Cash</h1>
-            <DrawerMain
-                title={'Add a cash'}
-                firstTitle={'Cash name'}
-            />
-            <CashTable/>
+            <DrawerCash
+             title={'Add a cash'}
+             firstTitle={'Cash name'} />
         </Container>
     )
 }
