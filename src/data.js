@@ -22,7 +22,7 @@ export const initialState = {
     cash:[
         {
             id:0,
-            name:"Cash - 1"
+            cashNumber:"Cash - 1"
         }
 
     ]

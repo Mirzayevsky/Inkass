@@ -32,12 +32,10 @@ const DrawerCash = ({title, firstTitle}) => {
             toast.error("Something went wrong !")
         }
         else { 
-
             dispatch({
                 type: "ADD_CASH",
                 payload:{...cash, id: state.cash[state.cash.length - 1].id +1},
             })
-
             setVisible(false);
             toast.success("Completed Successfully!")
         }

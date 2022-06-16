@@ -35,32 +35,32 @@ export const reducer = (state, action) => {
         //           if(item.name === word) return item
         //     })}
 
-        // case 'DELETE_CASH':{
-        //     const {cash} = state;
-        //     const arrayCash = cash.filter((item)=>item.id !== action.payload)
-        //     return {...state,cash:array}
-        // }
+        case 'DELETE_CASH':{
+            const {cash} = state;
+            const arrayCash = cash.filter((item)=>item.id !== action.payload)
+            return {...state,cash:arrayCash}
+        }
 
-        // case 'ADD_CASH':{
-        //     const cash = state.user
-        //     cash.push(action.payload)
-        //     return {...state, cash}
-        // }
+        case 'ADD_CASH':{
+            const cash = state.cash
+            cash.push(action.payload)
+            return {...state, cash}
+        }
 
-        // case 'EDIT_CASH':{
-        //     const cash = state.user;
-        //     const newData = cash.map((item) => {
-        //           if(item.id === action.payload) {
-        //              item = {
-        //                 id:action.payload.id,
-        //                 name:action.payload.name,
-        //                 cashNumber:action.payload.cashNumber
-        //              }
-        //           }
-        //           return item
-        //     })
-        //     return {...state, cash:newData}
-        // }    
+        case 'EDIT_CASH':{
+            const cash = state.user;
+            const newData = cash.map((item) => {
+                  if(item.id === action.payload) {
+                     item = {
+                        id:action.payload.id,
+                        name:action.payload.name,
+                        cashNumber:action.payload.cashNumber
+                     }
+                  }
+                  return item
+            })
+            return {...state, cash:newData}
+        }    
 
         default:
             return state;
