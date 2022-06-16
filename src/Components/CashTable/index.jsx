@@ -6,6 +6,7 @@ import PopUp from "../PopUp";
 import { ReactComponent as DeleteSvg } from '../../Assets/main/delete.svg';
 import EditImg from "../../Assets/main/edit.png"
 import DrawerCash from '../CashDrawer/app';
+import CashPopUp from '../CashPopUp';
 
 const CashTable = () => {
     const {state, dispatch} = useContext(Context)
@@ -36,13 +37,11 @@ const CashTable = () => {
     return (
         <Container>
             {popUp.cancel ? (
-                <PopUp
-                    firstTitle={'Name'}
-                    secondTitle={'PhoneNumber'}
-                    thirdTitle={'Address'}
-                    setPopUp={setPopUp}
-                    edit={edit}
-                />
+               <CashPopUp
+               firstTitle={'Cash name'}
+               setPopUp={setPopUp}
+               edit={edit}
+               />
             ) : ""
             }
            <DrawerCash

@@ -1,5 +1,5 @@
 import React,{useContext} from "react";
-import {Container} from "./style"
+import {Container, Title} from "./style"
 import {Context } from "../../Context/Context";
 import DrawerCash from "../../Components/CashDrawer/app";
 import CashTable from "../../Components/CashTable";
@@ -8,7 +8,7 @@ const Cash = () => {
     console.log(state.cash);
     return(
         <Container>
-            <h1>Cash</h1>
+            <Title>Cash</Title>
             <CashTable/>
         </Container>
     )
