@@ -1,16 +1,14 @@
 import React, {useContext, useState} from 'react';
 import {Form, Modal} from 'antd';
 import { Context } from '../../Context/Context';
-import DrawerMain from "../Drawer/app";
-import {Container, Table, TableWrapper, TBody, TD, TH, THead, TRow, Button, NotFound} from "./style";
+import {Container, Table, TableWrapper, TBody, TD, TH, THead, TRow,Button,EditButton} from "./style";
 import PopUp from "../PopUp";
 import { ReactComponent as DeleteSvg } from '../../Assets/main/delete.svg';
 import EditImg from "../../Assets/main/edit.png"
+import IncomeDrawer from "../IncomeDrawer/app";
 
-
-
-const SearchTable = ({found}) => {
-    const {dispatch} = useContext(Context)
+const IncomeTable = () => {
+    const {state, dispatch} = useContext(Context)
     const [edit, setEdit] = useState(null);
     const [popUp, setPopUp] = useState({cancel: false})
     const {confirm} = Modal;
@@ -47,33 +45,43 @@ const SearchTable = ({found}) => {
                 />
             ) : ""
             }
-            {found.length === 0 ? <NotFound><h1>nothing found</h1> </NotFound>: ""}
+            <IncomeDrawer
+                title={'Add income'}
+                firstTitle={'User'}
+                secondTitle={'Amount'}
+                thirdTitle={'Cash number'}
+                fourthTitle={'Date'}
+            />
             <TableWrapper>
                 <Table>
-                    <THead bg="#72a6bf">
+                    <THead>
                         <TRow>
                             <TH>#</TH>
-                            <TH>Name</TH>
+                            <TH>Username</TH>
                             <TH>PhoneNumber</TH>
-                            <TH>Address</TH>
+                            <TH>Amount</TH>
+                            <TH>Cash number</TH>
+                            <TH>Date</TH>
                             <TH>Edit</TH>
                             <TH>Delete</TH>
                         </TRow>
                     </THead>
                     <TBody>
-                        {found?.map((item,Index) => (
+                        {state.income.map((item,Index) => (
                             <TRow key={item.id}>
                                 <TD>{Index + 1}</TD>
-                                <TD>{item.name}</TD>
+                                <TD>{item.username}</TD>
                                 <TD>{item.phoneNumber}</TD>
-                                <TD>{item.address}</TD>
+                                <TD>{item.amount}</TD>
+                                <TD>{item.cashNumber}</TD>
+                                <TD>{item.date}</TD>
                                 <TD>
-                                    <Button onClick={() => {
+                                    <EditButton onClick={() => {
                                         setPopUp({cancel: true});
                                         EditFormData(item)
                                     }}>
                                         <img src={EditImg} alt={"edit"}/>
-                                    </Button>
+                                    </EditButton>
                                 </TD>
                                 <TD>
                                     <Button onClick={() => deleteUser(item.id)}>
@@ -90,6 +98,6 @@ const SearchTable = ({found}) => {
     );
 };
 
-export default SearchTable;
+export default IncomeTable;
 
 

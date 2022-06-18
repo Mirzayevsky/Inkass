@@ -14,7 +14,7 @@ const Profit = lazy(() => import("./Pages/Income/app"))
 
 function App() {
     return (
-           <div>
+           <>
             <ToastContainer autoClose={700}/>
                 <Layout style={{minHeight: '100vh',}} className="site-layout">
                     <Sidebar/>
@@ -27,7 +27,7 @@ function App() {
                         </Routes>
                     </Suspense>
                 </Layout>
-           </div>
+           </>
     );
 }
 

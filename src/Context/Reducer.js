@@ -1,15 +1,15 @@
 
 export const reducer = (state, action) => {
     switch (action.type) {
-        case 'DELETE_USER': {
-            const user = state.user;
-            const arrayUser = user.filter(item => item.id !== action.payload)
-            return {...state, user: arrayUser};
-        }
         case 'ADD_USER': {
             const user = state.user
             user.push(action.payload);
             return {...state, user }
+        }
+        case 'DELETE_USER': {
+            const user = state.user;
+            const userArray = user.filter(item => item.id !== action.payload)
+            return {...state, user: userArray};
         }
 
         case 'EDIT_USER': {
@@ -29,17 +29,14 @@ export const reducer = (state, action) => {
             })
             return {...state, user: array}
         }
-        // case 'ON_SEARCH':{
+        // case 'ON_SEARCH': {
         //     const word = action.payload;
-        //     let filterData = state.user.map((item) => {
-        //           if(item.name === word) return item
-        //     })}
-
-        case 'DELETE_CASH':{
-            const {cash} = state;
-            const arrayCash = cash.filter((item)=>item.id !== action.payload)
-            return {...state,cash:arrayCash}
-        }
+        //     const {search} = state
+        //     const {user} = state;
+        //     const filterData = user.filter((item) => item.name.toLowerCase().trim().includes(word.toLowerCase().trim()))
+        //     search.push(filterData)
+        //     return {...state, search}
+        // }
 
         case 'ADD_CASH':{
             const cash = state.cash
@@ -47,10 +44,16 @@ export const reducer = (state, action) => {
             return {...state, cash}
         }
 
+        case 'DELETE_CASH':{
+            const {cash} = state;
+            const arrayCash = cash.filter((item)=>item.id !== action.payload)
+            return {...state,cash:arrayCash}
+        }
+
         case 'EDIT_CASH':{
-            const cash = state.user;
+            const {cash} = state;
             const newData = cash.map((item) => {
-                  if(item.id === action.payload) {
+                  if(item.id === action.payload.id) {
                      item = {
                         id:action.payload.id,
                         name:action.payload.name,
@@ -60,7 +63,12 @@ export const reducer = (state, action) => {
                   return item
             })
             return {...state, cash:newData}
-        }    
+        }
+        case 'ADD_INCOME':{
+            const income = state.income
+            income.push(action.payload)
+            return {...state, income}
+        }
 
         default:
             return state;

@@ -21,7 +21,7 @@ const CashPopUp = ({firstTitle, edit, setPopUp}) => {
                 payload: obj
             })
             setPopUp({popUp: false})
-            toast.success(" Completed successfully")
+            toast.success("Completed successfully")
         }
 
     };

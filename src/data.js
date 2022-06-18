@@ -1,5 +1,5 @@
 export const initialState = {
-   user : [
+    user: [
         {
             id: 0,
             name: "John Doe",
@@ -19,11 +19,31 @@ export const initialState = {
             address: "US,Washington",
         }
     ],
-    cash:[
+    cash: [
         {
-            id:0,
-            cashNumber:"Cash - 1"
+            id: 0,
+            cashNumber: "Cash - 1"
+        },
+        {
+            id: 1,
+            cashNumber: "Cash - 2"
+        },
+        {
+            id: 2,
+            cashNumber: "Cash - 3"
         }
 
-    ]
+    ],
+    income: [
+        {
+            id: 0,
+            username:"Barri Allen",
+            phoneNumber: "+998 (99) 334 23 54",
+            amount:213,
+            cashNumber:"cash - 1",
+            date:"12:23"
+        }
+    ],
+    search: []
+
 }

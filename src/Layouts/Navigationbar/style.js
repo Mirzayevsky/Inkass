@@ -15,7 +15,6 @@ z-index: 91;
   position: absolute;
   right: 200px;
  }
-
 `;
 export const Logo = styled.div`
 position: absolute;
@@ -72,6 +71,7 @@ border-radius: 5px;
 border: 2px solid lightgray;
 outline: none;
 padding-left: 13px;
+margin-right: 70px;
 `;
 export const Button = styled.div`
 width: 30px;
@@ -83,4 +83,25 @@ cursor: pointer;
 svg{
     height: 100%;
 }
+`;
+export const SearchBtn = styled.div`
+height: 33px;
+width: 90px;
+border-radius:  0 5px 5px 0;
+background-color: black;
+color: #fff;
+font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+font-weight: 500;
+display: flex;
+align-items: center;
+justify-content: center;
+position: absolute;
+right: 183px;
+margin-top: 25px;
+cursor: pointer;
+&:hover{
+transition: 0.5s ease-in;
+background-color: rgba(0,0,0,0.76);
+}
+
 `;

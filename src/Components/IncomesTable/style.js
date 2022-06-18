@@ -3,10 +3,8 @@ export const Container = styled.div`
 
 `;
 export const TableWrapper = styled.div`
-  width: 80%;
+  width: 100%;
   overflow: auto;
-  margin: auto;
-  margin-top: 50px;
   @media only screen and (max-width: 1050px) {
     width: 100%;
     table {
@@ -31,7 +29,7 @@ export const THead = styled.thead`
   tr {
     background-color: lightgray;
     th {
-      color: white;
+     color: #222;
       padding: 20px 10px;
       &:last-child {
         border-top-right-radius: 10px;
@@ -48,7 +46,7 @@ export const TBody = styled.tbody`
     border-left: 1px solid black;
     transition-duration: 0.5s;
     &:hover {
-      background-color: lightgrey;
+      background-color: lightblue;
     }
   }
 `;
@@ -83,6 +81,22 @@ export const TD = styled.td`
 `;
 
 export const TH = styled.th``;
+export const EditButton = styled.div`
+width: 50px;
+height: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-left: 30%;
+cursor: pointer;
+transition: 0.5s ease;
+
+
+img{
+  height: 100%;
+}
+`;
+
 export const Button = styled.div`
 width: 50px;
 height: 30px;
@@ -92,6 +106,7 @@ justify-content: center;
 margin-left: 20%;
 cursor: pointer;
 transition: 0.5s ease;
+
 svg{
     height: 100%;
     width: 100%;
@@ -100,18 +115,4 @@ svg{
 img{
   height: 100%;
 }
-`;
-
-export const NotFound = styled.div`
-height: 100%;
-width: 100%;
-z-index: 2;
-background: #f0f2f5;
-display: flex;
-align-items: center;
-justify-content: center;
-position: absolute;
-top: 0;
-
-
 `;
