@@ -17,7 +17,15 @@ margin-left: auto;
 margin-right: 10px;
 
 `;
-
+export const  Select = styled.select`
+  width: 280px;
+  height: 40px;
+  outline: none;
+  border: 3px solid rgb(114, 166, 191);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+`;
 export const InputWrap = styled.div`
 display: flex;
 flex-direction: column;

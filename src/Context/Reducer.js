@@ -1,11 +1,13 @@
 
 export const reducer = (state, action) => {
     switch (action.type) {
+
         case 'ADD_USER': {
             const user = state.user
             user.push(action.payload);
             return {...state, user }
         }
+
         case 'DELETE_USER': {
             const user = state.user;
             const userArray = user.filter(item => item.id !== action.payload)
@@ -47,7 +49,7 @@ export const reducer = (state, action) => {
         case 'DELETE_CASH':{
             const {cash} = state;
             const arrayCash = cash.filter((item)=>item.id !== action.payload)
-            return {...state,cash:arrayCash}
+            return {...state, cash:arrayCash}
         }
 
         case 'EDIT_CASH':{
@@ -68,6 +70,28 @@ export const reducer = (state, action) => {
             const income = state.income
             income.push(action.payload)
             return {...state, income}
+        }
+        case 'EDIT_INCOME':{
+            const {income} = state;
+            const newData = income.map((item) => {
+                if(item.id === action.payload.id) {
+                    item = {
+                        id:action.payload.id,
+                        username:action.payload.username,
+                        cashNumber:action.payload.cashNumber,
+                        amount:action.payload.amount,
+                        phoneNumber:action.payload.phoneNumber,
+                        date:action.payload.date,
+                    }
+                }
+                return item
+            })
+            return {...state, income:newData}
+        }
+        case 'DELETE_INCOME':{
+            const {income} = state;
+            const arrayCash = income.filter((item)=>item.id !== action.payload)
+            return {...state, income:arrayCash}
         }
 
         default:

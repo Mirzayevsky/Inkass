@@ -11,7 +11,6 @@ z-index: 999;
 display: flex;
 align-items: center;
 justify-content: center;
-
 `;
 export const  Title = styled.div`
 font-size: 24px;
@@ -50,7 +49,6 @@ export const Label = styled.div`
  font-weight: 500;
  font-family: 'Poppins', sans-serif;
  margin-bottom: 7px;
-
 `;
 
 export const InputPhoneNumber = styled(NumberFormat)`
@@ -74,7 +72,6 @@ margin: auto;
 position: absolute;
 bottom: 8%;
 right: 10%;
-
 `;
 export const CancelButton = styled.button`
 height: 38px;
@@ -94,7 +91,6 @@ width: 100px;
 border-radius: 5px;
 background-color: #13bb13;
 margin-left: 20px;
-
 &:hover{
 transition: .5s ease;
 background-color: rgba(19,187,19,0.76);

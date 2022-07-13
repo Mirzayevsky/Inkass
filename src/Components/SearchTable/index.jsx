@@ -8,7 +8,6 @@ import { ReactComponent as DeleteSvg } from '../../Assets/main/delete.svg';
 import EditImg from "../../Assets/main/edit.png"
 
 
-
 const SearchTable = ({found}) => {
     const {dispatch} = useContext(Context)
     const [edit, setEdit] = useState(null);

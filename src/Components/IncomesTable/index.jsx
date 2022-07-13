@@ -6,6 +6,7 @@ import PopUp from "../PopUp";
 import { ReactComponent as DeleteSvg } from '../../Assets/main/delete.svg';
 import EditImg from "../../Assets/main/edit.png"
 import IncomeDrawer from "../IncomeDrawer/app";
+import IncomePopUp from "../IncomePopUp";
 
 const IncomeTable = () => {
     const {state, dispatch} = useContext(Context)
@@ -22,7 +23,7 @@ const IncomeTable = () => {
             cancelText: 'No',
             onOk() {
                 dispatch({
-                    type: "DELETE_USER",
+                    type: "DELETE_INCOME",
                     payload: id
                 })
             },
@@ -36,10 +37,12 @@ const IncomeTable = () => {
     return (
         <Container>
             {popUp.cancel ? (
-                <PopUp
+                <IncomePopUp
                     firstTitle={'Name'}
                     secondTitle={'PhoneNumber'}
-                    thirdTitle={'Address'}
+                    thirdTitle={'Amount'}
+                    fourthTitle={'Cash Number'}
+                    fifthTitle={'Date'}
                     setPopUp={setPopUp}
                     edit={edit}
                 />
@@ -48,9 +51,10 @@ const IncomeTable = () => {
             <IncomeDrawer
                 title={'Add income'}
                 firstTitle={'User'}
-                secondTitle={'Amount'}
-                thirdTitle={'Cash number'}
-                fourthTitle={'Date'}
+                secondTitle={'PhoneNumber'}
+                thirdTitle={'Amount'}
+                fourthTitle={'Cash number'}
+                fifthTitle={'Date'}
             />
             <TableWrapper>
                 <Table>
