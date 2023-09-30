@@ -26,7 +26,7 @@ const Navbar = () => {
     return (
         <Navigationbar>
             <Logo>
-                <span>Inkass</span>
+                
                 <LogoSvg/>
             </Logo>
             <Input className={"search-menu"}
